@@ -18,7 +18,7 @@ else
 {
 	$title = "<h1></h1>";
 	$button1 = "<a href='Login.php' class='mbloginbtn'>Login</a>";
-	$button2 = "<a href='SignUp.php' class='mbheaderlinkanchors' style='text-decoration: underline;''><p class='mbheaderlinks'>COVID-19 STATUS</p></a>";
+	$button2 = "<a href='database.php' class='mbheaderlinkanchors' style='text-decoration: underline;''><p class='mbheaderlinks'>COVID-19 STATUS</p></a>";
 }
 
 
