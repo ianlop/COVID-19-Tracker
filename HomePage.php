@@ -10,14 +10,14 @@ if(isset($_SESSION['username']))
 
    $title = "<h1> Welcome, ".$_SESSION['username']."!</h1>";
    $button1 = "<a href='Profile.php' class='mbloginbtn'>Profile</a>";
-   $button2 = "<a href='PHP/LogOut.inc.php' class='mbloginbtn'>Log Out</a>";
+   $button2 = "<a href='LogOut.inc.php' class='mbloginbtn'>Log Out</a>";
    $displaySignUp = false;
 
 }
 else
 {
 	$title = "<h1></h1>";
-	$button1 = "<a href='Login.php' class='mbloginbtn'>Login</a>";
+	$button1 = "<a href='LogIn.php' class='mbloginbtn'>Login</a>";
 	$button2 = "<a href='database.php' class='mbheaderlinkanchors' style='text-decoration: underline;''><p class='mbheaderlinks'>COVID-19 STATUS</p></a>";
 }
 
