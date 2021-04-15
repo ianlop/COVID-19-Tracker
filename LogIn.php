@@ -1,27 +1,47 @@
 <?php
 require 'database.php';
 
+//Code to check if the form has been submitted
+//(i.e if a user has clicked on login button with credentials)
+$ErrorOccured = false;
+$ErrorMsg;
+
 if(isset($_POST["login"]))
 {
 
 $Username = $_POST['username'];
-$Password = $_POST['password'];
+//We honestly do not need to store password, we will
+//be just fine with just the medicare_number
+//$Password = $_POST['password'];
 
-$query = mysqli_query($conn, "SELECT * FROM person WHERE medicare_number = '$_POST[username];'");
+//queries the DB if there is a matching tuple ( > 0)
+$query = mysqli_query($conn, "SELECT * FROM person WHERE medicare_number = '$_POST[username]' AND DOB = '$_POST[password];'");
 if (!$query)
 {
     die('Error: ' . mysqli_error($conn));
 }
+
 if(mysqli_num_rows($query) > 0)
 {
+  //if there is at least one, should probably be == 1, but
+  //our primary key constraint in the DB restricts there
+  //to be just one anyway
+
+  //Store the $Username variable into the (global) session variables
   session_start();
   $_SESSION["username"] = $Username;
+
+  //redirect to homepage
   header("location: HomePage.php");
+
 } 
+//error message to be displaced if login failed (tuple(s) found == 0)
 else 
 {
-  echo "User DNE";
+  $ErrorOccured = true;
+  $ErrorMsg = "<p id='ErrorMsg' style='color:red;' >Error occured, try again or create an account</p>";	
 }
+
 }
 
 ?>
@@ -126,6 +146,12 @@ span.psw {
     <label for="psw"><b>Password (DOB)</b></label>
     <br>
     <input type="date" name="password" required>
+    <?php
+    	if($ErrorOccured)
+    	{
+    		echo "$ErrorMsg";
+    	}
+    ?>
     <button type="submit" name="login">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me

@@ -1,20 +1,41 @@
 <?php
+/*
+It is important to include the require 'database.php' line to
+have access to our DB in each .php file we make
+*/
 require 'database.php';
 
+//Session variables may or may not be initialized or needed
+//but for homepage, we need it 
 session_start();
+
 $title;
 $button1;
 $button2;
 $displaySignUp = true;
+
+//Like here for example, in login.php I declared a 
+//session variable: 'username' to keep track of who's
+//logged in or not.
 if(isset($_SESSION['username']))
-{
-
-   $title = "<h1> Welcome, ".$_SESSION['username']."!</h1>";
-   $button1 = "<a href='Profile.php' class='mbloginbtn'>Profile</a>";
-   $button2 = "<a href='LogOut.inc.php' class='mbloginbtn'>Log Out</a>";
-   $displaySignUp = false;
-
-}
+{	
+	//in the homepage i am going to display their name in welcome msg
+	$sql = "SELECT first_name, last_name  FROM person WHERE medicare_number = ". $_SESSION['username'];
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) 
+	{
+		// output data of each row, should be just 1
+		while($row = $result->fetch_assoc()) 
+		{
+			$firstName = $row["first_name"];
+		}
+	}
+	$title = "<h2> Nice to see you, ".$firstName."!</h2>";
+	$button1 = "<a href='Profile.php' class='mbloginbtn'>Profile</a>";
+	$button2 = "<a href='LogOut.inc.php' class='mbloginbtn'>Log Out</a>";
+	$displaySignUp = false;
+	
+} 
 else
 {
 	$title = "<h1></h1>";
@@ -49,13 +70,13 @@ else
 							<a href="HomePage.php" style="text-decoration: none;"><h1 id="mbMainMenuHeader">COVID-19 TRACKER</h1></a>
 						</td>
 						<td class="mbheadertd"  style="padding-left: 50px;">
-							<a href="Nutrition/Fitness&Nutrition.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">Personal information</p></a>
+							<a href="PI/PersonalInfo.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">Personal information</p></a>
 						</td>
 						<td class="mbheadertd">
-							<a href="Education/education.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">Group Zone information</p></a>
+							<a href="GZ/GroupZone.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">Group Zone information</p></a>
 						</td>
 						<td class="mbheadertd">
-							<a href="finances/financepage.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">PCR information</p></a>
+							<a href="PCR/PCRinfo.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">PCR information</p></a>
 						</td>
 					</tr>
 				</table>
