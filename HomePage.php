@@ -1,5 +1,6 @@
 <?php
-	
+require 'database.php';
+
 session_start();
 $title;
 $button1;
@@ -159,7 +160,7 @@ else
 			<?php
 			if ($displaySignUp) {
 				echo "
-			<p><b> Click the 'Login' button to start tracking! </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='SignUp.html' class='loginbtn'> Login </a></p>   
+			<p><b> Click the 'Login' button to start tracking! </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='LogIn.php' class='loginbtn'> Login </a></p>   
 				
 				<p> If you have any questions about anything feel free to consult our F.A.Q 
 				or email your corresponding government for further help.</p>";

@@ -11,6 +11,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+/*
 //Your sql query here: v v v v
 $sql = "SELECT first_name, last_name FROM Person";
 $result = $conn->query($sql);
@@ -24,5 +25,11 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
+
 $conn->close();
+$statement = $conn->prepare('SELECT * FROM comp353.books as books');
+$statement->execute();
+
+
+*/
 ?>

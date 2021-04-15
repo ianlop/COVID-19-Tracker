@@ -1,3 +1,33 @@
+<?php
+require 'database.php';
+
+if(isset($_POST["login"]))
+{
+
+$Username = $_POST['username'];
+$Password = $_POST['password'];
+
+$query = mysqli_query($conn, "SELECT * FROM person WHERE medicare_number = '$_POST[username];'");
+if (!$query)
+{
+    die('Error: ' . mysqli_error($conn));
+}
+if(mysqli_num_rows($query) > 0)
+{
+  session_start();
+  $_SESSION["username"] = $Username;
+  header("location: HomePage.php");
+} 
+else 
+{
+  echo "User DNE";
+}
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -22,7 +52,7 @@ input[type=text], input[type=password] {
 }
 
 button {
-  background-color: #8066FF;
+  background-color: #0e7a68;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -63,10 +93,6 @@ span.psw {
 </style>
 
 </head>
-<?php
-
-?>
-
 
 <body>
 <nav class="mbHeadernav">
@@ -86,10 +112,6 @@ span.psw {
 					<div>
 						<a href="Login.php" class="mbloginbtn">Login</a>
 					</div>
-					
-					<div>
-						<a href="SignUp.php" class="mbheaderlinkanchors" style="text-decoration: underline;"><p class="mbheaderlinks">Create an Account</p></a>
-					</div>
 			</div>
 </nav>
 <br> <br> <br> <br> <br>
@@ -98,11 +120,12 @@ span.psw {
 
 <form  method="post" action="">
   <div class="container">
-    <label for="uname"><b>Username</b></label>
+    <label for="uname"><b>Username (Medicare Number)</b></label>
     <input type="text" placeholder="Enter Username" name="username" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <label for="psw"><b>Password (DOB)</b></label>
+    <br>
+    <input type="date" name="password" required>
     <button type="submit" name="login">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
