@@ -14,8 +14,6 @@ else
 	$button1 = "<a href='LogIn.php' class='mbloginbtn'>Login</a>";
 	$button2 = "<a href='database.php' class='mbheaderlinkanchors' style='text-decoration: underline;''><p class='mbheaderlinks'>COVID-19 STATUS</p></a>";
 }
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,13 +37,16 @@ else
 							<a href="HomePage.php" style="text-decoration: none;"><h1 id="mbMainMenuHeader">COVID-19 TRACKER</h1></a>
 						</td>
 						<td class="mbheadertd"  style="padding-left: 50px;">
-							<a href="PI/PersonalInfo.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">Personal information</p></a>
+							<a href="PI/PersonalInfo.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">Personal Information</p></a>
 						</td>
 						<td class="mbheadertd">
-							<a href="GZ/GroupZone.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">Group Zone information</p></a>
+							<a href="GZ/GroupZone.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">Group Zone Information</p></a>
 						</td>
 						<td class="mbheadertd">
-							<a href="PCR/PCRinfo.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">PCR information</p></a>
+							<a href="PCR/PCRinfo.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">PCR Information</p></a>
+						</td>
+						<td class="mbheadertd">
+							<a href="general recommendations/general_rec.php" class="mbheaderlinkanchors" style="color: blue;"><p class="mbheaderlinks">General Guidelines</p></a>
 						</td>
 					</tr>
 				</table>
@@ -54,16 +55,11 @@ else
 			<div id="mbloginsignupsdiv">
 						<?php
 						echo "$button1";
-						?>
-						<?php
 						echo "$button2";
 						?>
 			</div>
 		</nav>
 
-<?php
-	
-?>
 <div class="float-container">
 <div class="Profile">
 	

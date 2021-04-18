@@ -40,7 +40,7 @@ else
 {
 	$title = "<h1></h1>";
 	$button1 = "<a href='LogIn.php' class='mbloginbtn'>Login</a>";
-	$button2 = "<a href='database.php' class='mbheaderlinkanchors' style='text-decoration: underline;''><p class='mbheaderlinks'>COVID-19 STATUS</p></a>";
+	$button2 = "<a href='https://www.worldometers.info/coronavirus/' class='mbheaderlinkanchors' style='text-decoration: underline;''><p class='mbheaderlinks'>Current Status</p></a>";
 }
 
 
@@ -77,6 +77,9 @@ else
 						</td>
 						<td class="mbheadertd">
 							<a href="PCR/PCRinfo.php" class="mbheaderlinkanchors"><p class="mbheaderlinks">PCR information</p></a>
+						</td>
+						<td class="mbheadertd">
+							<a href="general recommendations/general_rec.php" class="mbheaderlinkanchors" style="color: blue;"><p class="mbheaderlinks">General Guidelines</p></a>
 						</td>
 					</tr>
 				</table>
