@@ -111,7 +111,7 @@ font-size: 30px;
   		<li>headache</li>
 		<li>muscle pain</li>
   		<li>diarrhea</li>
-  		<li>sore throat.g</li>
+  		<li>sore throat</li>
 	</ul>
 </ul>
 </div>

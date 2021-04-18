@@ -20,7 +20,7 @@ $displaySignUp = true;
 if(isset($_SESSION['username']))
 {	
 	//in the homepage i am going to display their name in welcome msg
-	$sql = "SELECT first_name, last_name  FROM person WHERE medicare_number = ". $_SESSION['username'];
+	$sql = "SELECT first_name FROM person WHERE medicare_number = ". $_SESSION['username'];
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) 
 	{
