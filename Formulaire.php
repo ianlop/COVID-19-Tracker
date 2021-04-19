@@ -6,18 +6,9 @@ if(isset($_SESSION['username']))
 {	
 	$button1 = "<a href='Profile.php' class='mbloginbtn'>Profile</a>";
 	$button2 = "<a href='LogOut.inc.php' class='mbloginbtn'>Log Out</a>";
-
-	$sql = "SELECT first_name, last_name  FROM person WHERE medicare_number = ". $_SESSION['username'];
-	$result = $conn->query($sql);
-	if ($result->num_rows > 0) 
-	{
-		// output data of each row, should be just 1
-		while($row = $result->fetch_assoc()) 
-		{
-			$firstName = $row["first_name"];
-			$lastName = $row["last_name"];
-		}
-	}
+	
+	$firstName = $_SESSION['first_name'];
+	$lastName = $_SESSION['last_name'];
 
 	$title = "<h2> New Symptom form for: ".$firstName.' '.$lastName." </h2>";
 	
@@ -36,7 +27,7 @@ else
 
 <head>
 
-<title> Profile </title>
+<title> Form </title>
 <link rel="stylesheet" type = "text/css" href="home_css/menubar+footerCSS.css"/>
 <style> 
 
@@ -84,9 +75,9 @@ else
 	<?php
 		echo "$title";
 	?>
-<form action="/html/tags/html_form_tag_action.cfm" method="post">
+<form action="PHP processing files/process.php" method="post">
 Please describe what you are feeling:<br />
-<textarea name="comments" id="comments" rows="5" cols="80" placeholder="Describe what you are feeling here...">
+<textarea name="newSymptom" id="comments" rows="10" cols="90" placeholder="Describe what you are feeling here...">
 </textarea><br/>
 <input type="submit" value="Submit" />
 </form>

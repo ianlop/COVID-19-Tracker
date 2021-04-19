@@ -7,17 +7,8 @@ if(isset($_SESSION['username']))
 	$button1 = "<a href='Profile.php' class='mbloginbtn'>Profile</a>";
 	$button2 = "<a href='LogOut.inc.php' class='mbloginbtn'>Log Out</a>";
 
-	$sql = "SELECT first_name  FROM person WHERE medicare_number = ". $_SESSION['username'];
-	$result = $conn->query($sql);
-	if ($result->num_rows > 0) 
-	{
-		// output data of each row, should be just 1
-		while($row = $result->fetch_assoc()) 
-		{
-			$firstName = $row["first_name"];
-		}
-	}
-
+	$firstName = $_SESSION['first_name'];
+	
 	$title = "<h2> Displaying the symptoms for ".$firstName." </h2>";
 	
 }
