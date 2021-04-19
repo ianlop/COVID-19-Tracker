@@ -15,7 +15,7 @@ $Username = $_POST['username'];
 //$Password = $_POST['password'];
 
 //queries the DB if there is a matching tuple ( > 0)
-$query = mysqli_query($conn, "SELECT * FROM person WHERE medicare_number = '$_POST[username]' AND DOB = '$_POST[password];'");
+$query = mysqli_query($conn, "SELECT * FROM Person WHERE medicare_number = '$_POST[username]' AND DOB = '$_POST[password];'");
 if (!$query)
 {
     die('Error: ' . mysqli_error($conn));
