@@ -7,11 +7,11 @@ if(isset($_SESSION['username']) && $_POST["newSymptom"])
 	$button1 = "<a href='../Profile.php' class='mbloginbtn'>Profile</a>";
 	$button2 = "<a href='../LogOut.inc.php' class='mbloginbtn'>Log Out</a>";
 
-	$sql = "SELECT * FROM symptoms;";
+	$sql = "SELECT * FROM Symptoms;";
 	$result = $conn->query($sql);
 	$count = $result->num_rows + 1;
 
-	$sql = "INSERT INTO symptoms(symptoms_sr_number, symptom_description) VALUES(".$count.", '".$_POST["newSymptom"]."');";
+	$sql = "INSERT INTO Symptoms(symptoms_sr_number, symptom_description) VALUES(".$count.", '".$_POST["newSymptom"]."');";
 	if ($conn->query($sql) === TRUE) {
 		$title = "<h2>Thank you, ".$_SESSION['first_name'].' '.$_SESSION['last_name']." we have recorded this information... </h2>";
 	} 
